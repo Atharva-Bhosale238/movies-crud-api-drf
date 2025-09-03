@@ -19,8 +19,15 @@ class MovieApi(APIView):
         releaseYear = request.POST.get('releaseYear')
         genre = request.POST.get('genre')
         rating = request.POST.get('rating')
+        if (title=='' or director=='' or releaseYear=='' or genre=='' or rating==''):
+            return Response({"error":"incomplete details"}, status=status.HTTP_400_BAD_REQUEST)
         movie = Movie(title=title, director=director, releaseYear=releaseYear, genre=genre, rating=rating)
+        movie.save()
+        return Response({"success":"movie saved successfully"}, status=status.HTTP_201_CREATED)
 
-        return Response({}, status=status.HTTP_201_CREATED)
+    def get(self, request, format=None):
+        movie_items = Movie.objects.values()
+        movies = list(movie_items)
+        return Response({"movies" : movies}, status=status.HTTP_200_OK)
     
 
