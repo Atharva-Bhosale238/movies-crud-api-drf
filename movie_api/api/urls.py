@@ -4,5 +4,5 @@ from .views import MovieApi
 
 urlpatterns = [
     path('movies/', MovieApi.as_view(), name="movies"),
-    path('movies/<int:id>/', MovieApi.as_view(), name="movies"),
+    path('movies/<str:id>/', MovieApi.as_view(), name="movies"),
 ]
