@@ -55,6 +55,7 @@ We can test the API using [Postman](https://www.postman.com/) or inbuilt testcas
 
 First, we have to start up Django's development server.
 ```
+cd movie_api
 python manage.py runserver
 ```
 
