@@ -28,6 +28,17 @@ class MovieApi(APIView):
             return Response({"movie":serializer.data},status=status.HTTP_200_OK)
         movie_items = Movie.objects.all()
         movies = self.serializer_class(movie_items, many=True)
-        return Response({"movies" : movies.data}, status=status.HTTP_200_OK)
+        return Response(movies.data, status=status.HTTP_200_OK)
     
-
+    def put(self, request,id=None, format=None):
+        movie= get_object_or_404(Movie, id=id)
+        serializer = self.serializer_class(movie, data=request.data, partial=False)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"success":f"movie details updated with id {serializer['id'].value}"}, status=status.HTTP_200_OK)
+        return Response({"error": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, id=None, format=None):
+        movie=get_object_or_404(Movie, id=id)
+        movie.delete()
+        return Response({"success":f"movie with id {id} deleted"}, status=status.HTTP_200_OK)
