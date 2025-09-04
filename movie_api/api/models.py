@@ -4,6 +4,8 @@ import uuid
 import datetime
 
 # Create your models here.
+
+#Movie model that stores data related to the movie in the database
 class Movie(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     title = models.CharField(max_length=30, blank=False)
@@ -13,6 +15,7 @@ class Movie(models.Model):
     rating = models.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)], blank=True, null=True)
 
     class Meta:
+        #constraint to deny duplicate movie entries based on title and release year
         constraints = [
             models.UniqueConstraint(fields=['title', 'releaseYear'], name='unique_movie')
         ]
