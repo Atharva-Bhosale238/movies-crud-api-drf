@@ -11,7 +11,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=30, blank=False)
     director = models.CharField(max_length=20, blank=True, null=True)
     releaseYear = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(datetime.datetime.now().year)], blank=True, null=True)
-    genre = models.CharField(max_length=20)
+    genre = models.CharField(max_length=20,blank=True, null=True)
     rating = models.IntegerField(validators=[MaxValueValidator(10), MinValueValidator(1)], blank=True, null=True)
 
     class Meta:
