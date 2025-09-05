@@ -24,7 +24,7 @@ Activate the virtual env
 
 For windows:
 ```
-pip install virtualenv
+env\Scripts\activate
 ```
 For Linux
 ```
