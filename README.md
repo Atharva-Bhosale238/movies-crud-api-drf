@@ -70,7 +70,7 @@ Below are some examples, replace `<id>` with the movie id you want to update/del
 | Method | URL             | Description                                    | Body (JSON)                                                                                                                |
 | ------ | --------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | GET    | `/movies/`      | List all movies                                | N/A                                                                                                                        |
-| GET    | `/movies/<id>/` | Retrieve a single movie by ID                  |                                                                                                                     |
+| GET    | `/movies/<id>/` | Retrieve a single movie by ID                  |         N/A                                                                                                            | 
 | POST   | `/movies/`      | Create a new movie                             | `{ "title": "Interstellar", "director": "Christopher Nolan", "releaseYear": 2014, "genre": "Sci-Fi", "rating": 10 } ` |
 | PUT    | `/movies/<id>/` | Update an existing movie (all fields required) | `{   "title": "Inception Updated","director": "Christopher Nolan","releaseYear": 2010, "genre": "Sci-Fi","rating": 10}`     |
 | DELETE | `/movies/<id>/` | Delete a movie                                 | N/A                                                                                                                        |
