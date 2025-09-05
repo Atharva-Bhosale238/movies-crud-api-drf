@@ -123,11 +123,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# REST_FRAMEWORK = {
+REST_FRAMEWORK = {
 
-#     # # or allow read-only access for unauthenticated users.
-#     # 'DEFAULT_PERMISSION_CLASSES': [
-#     #     'rest_framework.renderers.JSONRenderer',
-#     # ],
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
 
-# }
+}
